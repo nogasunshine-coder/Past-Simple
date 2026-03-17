@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Simple – זמן עבר פשוט | כיתה ז'</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --card: #ffffff;
+    --primary: #3b5bdb;
+    --accent: #f03e3e;
+    --gold: #f59f00;
+    --green: #2f9e44;
+    --purple: #7048e8;
+    --soft: #e7edff;
+    --border: #c5d0f5;
+    --text: #1a1a2e;
+    --muted: #5c6898;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(59,91,219,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    direction: rtl;
+  }
+
+  /* ========= HEADER ========= */
+  .hero {
+    background: linear-gradient(135deg, #3b5bdb 0%, #7048e8 60%, #f03e3e 100%);
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '⏰';
+    font-size: 160px;
+    position: absolute;
+    opacity: 0.07;
+    top: -20px; left: -20px;
+    transform: rotate(-15deg);
+  }
+  .hero::after {
+    content: '📚';
+    font-size: 130px;
+    position: absolute;
+    opacity: 0.07;
+    bottom: -20px; right: -10px;
+    transform: rotate(10deg);
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    line-height: 1.2;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.88);
+    font-size: 1.1rem;
+    margin-top: 12px;
+    font-weight: 500;
+  }
+
+  /* ========= SCORE BAR ========= */
+  .score-bar {
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(59,91,219,0.3);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .score-badge {
+    background: var(--gold);
+    color: #1a1a2e;
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+  .progress-wrap {
+    flex: 1;
+    max-width: 300px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50px;
+    height: 12px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 50px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  /* ========= LAYOUT ========= */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  /* ========= SECTION HEADERS ========= */
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title span.num {
+    background: var(--primary);
+    color: #fff;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ========= CARDS ========= */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    margin-bottom: 20px;
+  }
+
+  /* ========= GRAMMAR BOX ========= */
+  .grammar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media(max-width:600px){ .grammar-grid { grid-template-columns: 1fr; } }
+
+  .grammar-box {
+    background: var(--soft);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .grammar-box h3 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  .grammar-box .formula {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+    background: rgba(59,91,219,0.08);
+    padding: 6px 10px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .grammar-box .example {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 6px;
+  }
+  .grammar-box .example-he {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-top: 3px;
+  }
+
+  .spelling-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .spell-item {
+    background: #fff0f0;
+    border: 1.5px solid #ffc9c9;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #c92a2a;
+  }
+  .spell-item span { color: var(--muted); font-weight: 400; margin-left: 4px; }
+
+  .time-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .time-tag {
+    background: linear-gradient(90deg, #3b5bdb, #7048e8);
+    color: #fff;
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  /* ========= EXERCISE CARDS ========= */
+  .exercise-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .exercise-card .ex-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .ex-badge {
+    background: var(--primary);
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.85rem;
+    padding: 4px 14px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+  .ex-badge.green { background: var(--green); }
+  .ex-badge.purple { background: var(--purple); }
+  .ex-badge.gold { background: var(--gold); color: var(--text); }
+  .ex-badge.red { background: var(--accent); }
+
+  .ex-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .ex-points {
+    margin-right: auto;
+    background: #fff3cd;
+    border: 1.5px solid var(--gold);
+    border-radius: 50px;
+    padding: 3px 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #856404;
+    white-space: nowrap;
+  }
+  .ex-instruction {
+    font-size: 0.93rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 10px;
+    border-right: 4px solid var(--primary);
+  }
+
+  /* ========= INPUTS ========= */
+  input[type=text], textarea, select {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.97rem;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: #f8f9ff;
+    color: var(--text);
+    width: 100%;
+    direction: ltr;
+  }
+  input[type=text].hebrew, textarea.hebrew { direction: rtl; }
+  input[type=text]:focus, textarea:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59,91,219,0.12);
+    background: #fff;
+  }
+  input[type=text].correct { border-color: var(--green); background: #f0fff4; }
+  input[type=text].wrong { border-color: var(--accent); background: #fff5f5; }
+
+  .fill-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .fill-row label {
+    font-weight: 600;
+    min-width: 24px;
+    color: var(--primary);
+  }
+  .fill-row .sentence-text {
+    font-size: 0.97rem;
+    color: var(--text);
+    flex: 1;
+    line-height: 1.7;
+  }
+  .fill-row input[type=text] {
+    width: 140px;
+    flex-shrink: 0;
+  }
+  .hint-verb {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+
+  /* MCQ */
+  .mcq-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  @media(max-width:500px){ .mcq-options { grid-template-columns: 1fr; } }
+  .mcq-option {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 0.97rem;
+    font-weight: 600;
+    background: #f8f9ff;
+    transition: all 0.18s;
+    direction: ltr;
+    text-align: left;
+    position: relative;
+  }
+  .mcq-option:hover { border-color: var(--primary); background: var(--soft); }
+  .mcq-option.selected { border-color: var(--primary); background: var(--soft); }
+  .mcq-option.correct { border-color: var(--green); background: #f0fff4; color: var(--green); }
+  .mcq-option.wrong { border-color: var(--accent); background: #fff5f5; color: var(--accent); }
+  .mcq-question { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+
+  /* Textarea */
+  textarea { min-height: 90px; resize: vertical; }
+
+  /* ========= BUTTONS ========= */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 50px;
+    padding: 11px 28px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(59,91,219,0.3);
+  }
+  .btn-primary:hover { background: #2f4ac4; transform: translateY(-1px); }
+  .btn-check {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(47,158,68,0.3);
+  }
+  .btn-check:hover { background: #27873b; }
+  .btn-gold {
+    background: var(--gold);
+    color: #1a1a2e;
+    box-shadow: 0 4px 12px rgba(245,159,0,0.3);
+    font-size: 1.1rem;
+    padding: 14px 36px;
+  }
+  .btn-gold:hover { background: #e08e00; }
+
+  .check-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+
+  /* ========= FEEDBACK ========= */
+  .feedback {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.97rem;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.success { background: #f0fff4; border: 2px solid var(--green); color: var(--green); }
+  .feedback.partial { background: #fff8e1; border: 2px solid var(--gold); color: #856404; }
+  .feedback.error { background: #fff5f5; border: 2px solid var(--accent); color: var(--accent); }
+
+  /* ========= ORDERING ========= */
+  .word-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    min-height: 48px;
+    padding: 10px;
+    background: #f8f9ff;
+    border-radius: 10px;
+    border: 2px dashed var(--border);
+  }
+  .word-chip {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    direction: ltr;
+    user-select: none;
+    transition: all 0.15s;
+  }
+  .word-chip:hover { background: #2f4ac4; transform: scale(1.04); }
+  .word-chip.used { background: #ccc; cursor: not-allowed; }
+  .answer-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 48px;
+    padding: 10px;
+    background: var(--soft);
+    border-radius: 10px;
+    border: 2px solid var(--border);
+    margin-bottom: 10px;
+  }
+  .answer-chip {
+    background: var(--purple);
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    direction: ltr;
+    user-select: none;
+    transition: all 0.15s;
+  }
+  .answer-chip:hover { background: #5b35d0; }
+
+  /* ========= TRANSLATION ========= */
+  .translate-item {
+    margin-bottom: 18px;
+  }
+  .translate-item .he-sentence {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    background: #fffde7;
+    border-right: 4px solid var(--gold);
+    border-radius: 6px;
+  }
+
+  /* ========= FINAL SCORE ========= */
+  .final-section {
+    text-align: center;
+    padding: 40px 24px;
+    background: linear-gradient(135deg, #3b5bdb 0%, #7048e8 100%);
+    border-radius: 20px;
+    color: #fff;
+    margin-top: 40px;
+  }
+  .final-section h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+  .big-score {
+    font-family: 'Fredoka One', cursive;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--gold);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .grade-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 8px;
+    opacity: 0.9;
+  }
+
+  /* ========= EMOJI FEEDBACK ========= */
+  .emoji-reaction { font-size: 2.5rem; margin: 8px 0; }
+
+  /* ========= MISC ========= */
+  .divider {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 10px 0 20px;
+  }
+  .irr-tab {
+    background: #e7edff;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--primary);
+    transition: all 0.15s;
+    direction: ltr;
+  }
+  .irr-tab:hover { background: var(--primary); color: #fff; }
+  .irr-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  .irr-group-panel {
+    background: #f8f9ff;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 12px;
+  }
+  .irr-group-panel.hidden { display: none; }
+  .irr-desc {
+    font-size: 0.93rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    background: #fff;
+    border-radius: 8px;
+    border-right: 4px solid var(--purple);
+  }
+  .irr-pairs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .irr-pair {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 7px 14px;
+    direction: ltr;
+  }
+  .irr-pair .base { font-weight: 700; color: var(--text); font-size: 0.97rem; }
+  .irr-pair .arr { color: var(--muted); font-size: 0.85rem; }
+  .irr-pair .past { font-weight: 900; color: var(--accent); font-size: 0.97rem; }
+
+  /* ===== VERB TABLE ===== */
+  .verb-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    direction: ltr;
+  }
+  .verb-table th {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.95rem;
+  }
+  .verb-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .verb-table tr:nth-child(even) td { background: #f5f7ff; }
+  .verb-table .base-cell {
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .verb-table input[type=text] {
+    width: 110px;
+    text-align: center;
+    padding: 5px 8px;
+    font-size: 0.93rem;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    direction: ltr;
+  }
+
+  /* ===== FLASHCARD ===== */
+  .flash-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+    border-radius: 18px;
+    padding: 36px 24px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(59,91,219,0.25);
+  }
+  .flash-verb {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    direction: ltr;
+  }
+  .flash-he {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    margin-top: 6px;
+  }
+
+
+    display: inline-block;
+    border-bottom: 2.5px solid var(--primary);
+    min-width: 100px;
+    margin: 0 4px;
+    vertical-align: bottom;
+    height: 26px;
+    padding: 0 6px;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    width: 120px;
+    outline: none;
+    text-align: center;
+    direction: ltr;
+  }
+  .inline-blank:focus { border-color: var(--accent); }
+  .inline-blank.correct { border-color: var(--green); color: var(--green); }
+  .inline-blank.wrong { border-color: var(--accent); color: var(--accent); }
+
+  .sentence-line {
+    margin-bottom: 14px;
+    line-height: 2.2;
+    font-size: 1rem;
+  }
+  .sentence-label {
+    font-weight: 700;
+    color: var(--primary);
+    margin-left: 6px;
+  }
+
+  .q-block {
+    margin-bottom: 22px;
+  }
+  .q-block p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+    direction: ltr;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>📖 Past Simple<br>זמן עבר פשוט</h1>
+  <p>כיתה ז' | רמה בינונית | ~40–50 דקות</p>
+</div>
+
+<!-- SCORE BAR -->
+<div class="score-bar">
+  <span>🏆 הניקוד שלי:</span>
+  <span class="score-badge" id="scoreDisplay">0 / 100</span>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <span id="completedLabel" style="font-size:0.88rem; opacity:0.85">0 מתרגילים הושלמו</span>
+</div>
+
+<div class="container">
+
+  <!-- ===== THEORY ===== -->
+  <div class="section-title"><span class="num">📘</span> מה זה Past Simple?</div>
+
+  <div class="card">
+    <p style="font-size:1.05rem; line-height:1.9; color:var(--text);">
+      <strong>Past Simple</strong> הוא <strong>זמן עבר פשוט</strong> באנגלית.<br>
+      אנחנו משתמשים בו כשרוצים לדבר על <strong>פעולות שקרו בעבר וכבר הסתיימו</strong>.<br>
+      כמו בעברית – אמרנו "הלך", "אכלה", "שיחקנו" – באנגלית נאמר ב־Past Simple.
+    </p>
+
+    <div style="margin-top:16px; background:#fff8e1; border-radius:10px; padding:14px 18px; border-right:4px solid var(--gold);">
+      <strong>⏰ ביטויי זמן – מילים שמסמנות שמדובר בעבר:</strong>
+      <div class="time-tags" style="margin-top:10px;">
+        <span class="time-tag">yesterday</span>
+        <span class="time-tag">last night</span>
+        <span class="time-tag">last week</span>
+        <span class="time-tag">last Sunday</span>
+        <span class="time-tag">last month</span>
+        <span class="time-tag">last year</span>
+        <span class="time-tag">two days ago</span>
+        <span class="time-tag">100 years ago</span>
+        <span class="time-tag">in 1969</span>
+        <span class="time-tag">a month ago</span>
+        <span class="time-tag">on my last birthday</span>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; background:#f3f0ff; border-radius:10px; padding:14px 18px; border-right:4px solid var(--purple);">
+      <strong>📝 כללי כתיב – איך מוסיפים ed:</strong>
+      <div class="spelling-grid" style="margin-top:12px;">
+        <div class="spell-item"><span>walk →</span> walked</div>
+        <div class="spell-item"><span>play →</span> played</div>
+        <div class="spell-item"><span>cry →</span> cried</div>
+        <div class="spell-item"><span>love →</span> loved</div>
+        <div class="spell-item"><span>stop →</span> stopped</div>
+        <div class="spell-item"><span>dance →</span> danced</div>
+        <div class="spell-item"><span>study →</span> studied</div>
+        <div class="spell-item"><span>plan →</span> planned</div>
+      </div>
+    </div>
+
+    <div class="grammar-grid">
+      <div class="grammar-box">
+        <h3>✅ חיוב</h3>
+        <div class="formula">Subject + verb+ed / irregular</div>
+        <div class="example">The airplane disappeared.</div>
+        <div class="example-he">המטוס נעלם.</div>
+      </div>
+      <div class="grammar-box">
+        <h3>❌ שלילה</h3>
+        <div class="formula">Subject + didn't + verb</div>
+        <div class="example">We didn't find the clues.</div>
+        <div class="example-he">לא מצאנו את הרמזים.</div>
+      </div>
+      <div class="grammar-box">
+        <h3>❓ שאלת Yes/No</h3>
+        <div class="formula">Did + subject + verb?</div>
+        <div class="example">Did you have a good time?</div>
+        <div class="example-he">האם נהנית?</div>
+      </div>
+      <div class="grammar-box">
+        <h3>❓ שאלת Wh-</h3>
+        <div class="formula">Wh- + did + subject + verb?</div>
+        <div class="example">Where did you go last weekend?</div>
+        <div class="example-he">לאן הלכת בסוף שבוע?</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; background:#f0fff4; border-radius:10px; padding:14px 18px; border-right:4px solid var(--green);">
+      <strong>⭐ שאלת Wh- Subject (מי עשה?):</strong><br>
+      <span style="font-size:0.95rem; color:var(--muted); display:block; margin-top:4px;">כשה־Who הוא נושא המשפט – <strong>לא משתמשים ב-did!</strong></span>
+      <div style="color:var(--accent); font-weight:700; margin-top:8px; direction:ltr;">Who found the most clues?</div>
+      <div style="color:var(--muted); font-size:0.88rem;">מי מצא את הכי הרבה רמזים?</div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE 1 – MCQ ===== -->
+  <div class="section-title"><span class="num">1</span> שאלות אמריקאיות</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge">MCQ</span>
+      <span class="ex-title">בחר את התשובה הנכונה</span>
+      <span class="ex-points">⭐ 20 נקודות</span>
+    </div>
+    <div class="ex-instruction">
+      🇮🇱 בכל שאלה יש 4 אפשרויות. בחר את צורת הפועל הנכונה ב-Past Simple. שים לב לביטויי הזמן!
+    </div>
+
+    <!-- Q1 -->
+    <div class="q-block">
+      <p>1. She _______ to school yesterday. (walk)</p>
+      <div class="mcq-options" id="mcq1" data-correct="b" data-points="4">
+        <div class="mcq-option" data-val="a" onclick="selectMCQ('mcq1','a')">walks</div>
+        <div class="mcq-option" data-val="b" onclick="selectMCQ('mcq1','b')">walked</div>
+        <div class="mcq-option" data-val="c" onclick="selectMCQ('mcq1','c')">walk</div>
+        <div class="mcq-option" data-val="d" onclick="selectMCQ('mcq1','d')">walking</div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-block">
+      <p>2. They _______ dinner at 7pm last night. (have)</p>
+      <div class="mcq-options" id="mcq2" data-correct="c" data-points="4">
+        <div class="mcq-option" data-val="a" onclick="selectMCQ('mcq2','a')">have</div>
+        <div class="mcq-option" data-val="b" onclick="selectMCQ('mcq2','b')">haved</div>
+        <div class="mcq-option" data-val="c" onclick="selectMCQ('mcq2','c')">had</div>
+        <div class="mcq-option" data-val="d" onclick="selectMCQ('mcq2','d')">having</div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-block">
+      <p>3. _______ you _______ a good time on your last birthday?</p>
+      <div class="mcq-options" id="mcq3" data-correct="a" data-points="4">
+        <div class="mcq-option" data-val="a" onclick="selectMCQ('mcq3','a')">Did / have</div>
+        <div class="mcq-option" data-val="b" onclick="selectMCQ('mcq3','b')">Did / had</div>
+        <div class="mcq-option" data-val="c" onclick="selectMCQ('mcq3','c')">Do / have</div>
+        <div class="mcq-option" data-val="d" onclick="selectMCQ('mcq3','d')">Does / have</div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-block">
+      <p>4. We _______ go to the beach last month because it was cold.</p>
+      <div class="mcq-options" id="mcq4" data-correct="d" data-points="4">
+        <div class="mcq-option" data-val="a" onclick="selectMCQ('mcq4','a')">don't</div>
+        <div class="mcq-option" data-val="b" onclick="selectMCQ('mcq4','b')">not did</div>
+        <div class="mcq-option" data-val="c" onclick="selectMCQ('mcq4','c')">didn't went</div>
+        <div class="mcq-option" data-val="d" onclick="selectMCQ('mcq4','d')">didn't go</div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-block">
+      <p>5. _______ won the game two days ago?</p>
+      <div class="mcq-options" id="mcq5" data-correct="b" data-points="4">
+        <div class="mcq-option" data-val="a" onclick="selectMCQ('mcq5','a')">Who did</div>
+        <div class="mcq-option" data-val="b" onclick="selectMCQ('mcq5','b')">Who</div>
+        <div class="mcq-option" data-val="c" onclick="selectMCQ('mcq5','c')">Whose</div>
+        <div class="mcq-option" data-val="d" onclick="selectMCQ('mcq5','d')">Which did</div>
+      </div>
+    </div>
+
+    <div class="check-area">
+      <button class="btn btn-check" onclick="checkMCQ()">✅ בדוק תשובות</button>
+    </div>
+    <div class="feedback" id="mcqFeedback"></div>
+  </div>
+
+  <!-- ===== EXERCISE 2 – Fill in the blanks ===== -->
+  <div class="section-title"><span class="num">2</span> השלמת פעלים</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge green">Fill In</span>
+      <span class="ex-title">כתוב את הפועל בצורת עבר פשוט</span>
+      <span class="ex-points">⭐ 20 נקודות</span>
+    </div>
+    <div class="ex-instruction">
+      🇮🇱 מלא את הפועל שבסוגריים בצורת <strong>Past Simple</strong> הנכונה. שים לב לפעלים לא סדירים!
+    </div>
+
+    <div class="sentence-line">
+      <span class="sentence-label">1.</span>
+      The children <input class="inline-blank" id="f1" data-answer="played" placeholder="play"> in the park last Sunday.
+    </div>
+    <div class="sentence-line">
+      <span class="sentence-label">2.</span>
+      My family <input class="inline-blank" id="f2" data-answer="went" placeholder="go"> to Eilat a month ago.
+    </div>
+    <div class="sentence-line">
+      <span class="sentence-label">3.</span>
+      She <input class="inline-blank" id="f3" data-answer="cried" placeholder="cry"> when she watched the movie yesterday.
+    </div>
+    <div class="sentence-line">
+      <span class="sentence-label">4.</span>
+      They <input class="inline-blank" id="f4" data-answer="didn't eat" placeholder="not eat"> breakfast this morning.
+    </div>
+    <div class="sentence-line">
+      <span class="sentence-label">5.</span>
+      <input class="inline-blank" id="f5" data-answer="did" placeholder="do"> you <input class="inline-blank" id="f5b" data-answer="study" placeholder="study"> for the test last night?
+    </div>
+    <div class="sentence-line">
+      <span class="sentence-label">6.</span>
+      He <input class="inline-blank" id="f6" data-answer="stopped" placeholder="stop"> the car and <input class="inline-blank" id="f6b" data-answer="ran" placeholder="run"> to the door.
+    </div>
+    <div class="sentence-line">
+      <span class="sentence-label">7.</span>
+      In 1969, humans <input class="inline-blank" id="f7" data-answer="landed" placeholder="land"> on the moon.
+    </div>
+
+    <div class="check-area">
+      <button class="btn btn-check" onclick="checkFill()">✅ בדוק תשובות</button>
+    </div>
+    <div class="feedback" id="fillFeedback"></div>
+  </div>
+
+  <!-- ===== EXERCISE 3 – Sentence Ordering ===== -->
+  <div class="section-title"><span class="num">3</span> סדר את המשפטים</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge purple">Order</span>
+      <span class="ex-title">סדר את המילים למשפט נכון</span>
+      <span class="ex-points">⭐ 20 נקודות</span>
+    </div>
+    <div class="ex-instruction">
+      🇮🇱 לחץ על המילים לפי הסדר הנכון כדי לבנות משפט ב-Past Simple. לחץ על מילה באזור התשובה כדי להחזיר אותה.
+    </div>
+
+    <!-- Order Q1 -->
+    <div style="margin-bottom:24px;">
+      <p style="font-weight:700; margin-bottom:8px; color:var(--muted);">משפט 1: (5 נקודות)</p>
+      <div class="word-chips" id="chips1">
+        <div class="word-chip" onclick="pickChip(this,'ans1')">yesterday</div>
+        <div class="word-chip" onclick="pickChip(this,'ans1')">I</div>
+        <div class="word-chip" onclick="pickChip(this,'ans1')">found</div>
+        <div class="word-chip" onclick="pickChip(this,'ans1')">a</div>
+        <div class="word-chip" onclick="pickChip(this,'ans1')">key</div>
+        <div class="word-chip" onclick="pickChip(this,'ans1')">old</div>
+      </div>
+      <div class="answer-zone" id="ans1" data-correct="I found an old key yesterday."></div>
+    </div>
+
+    <!-- Order Q2 -->
+    <div style="margin-bottom:24px;">
+      <p style="font-weight:700; margin-bottom:8px; color:var(--muted);">משפט 2: (5 נקודות)</p>
+      <div class="word-chips" id="chips2">
+        <div class="word-chip" onclick="pickChip(this,'ans2')">Did</div>
+        <div class="word-chip" onclick="pickChip(this,'ans2')">she</div>
+        <div class="word-chip" onclick="pickChip(this,'ans2')">last</div>
+        <div class="word-chip" onclick="pickChip(this,'ans2')">call</div>
+        <div class="word-chip" onclick="pickChip(this,'ans2')">you</div>
+        <div class="word-chip" onclick="pickChip(this,'ans2')">night</div>
+        <div class="word-chip" onclick="pickChip(this,'ans2')">?</div>
+      </div>
+      <div class="answer-zone" id="ans2" data-correct="Did she call you last night?"></div>
+    </div>
+
+    <!-- Order Q3 -->
+    <div style="margin-bottom:24px;">
+      <p style="font-weight:700; margin-bottom:8px; color:var(--muted);">משפט 3: (5 נקודות)</p>
+      <div class="word-chips" id="chips3">
+        <div class="word-chip" onclick="pickChip(this,'ans3')">didn't</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">They</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">the</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">watch</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">ago</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">two</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">weeks</div>
+        <div class="word-chip" onclick="pickChip(this,'ans3')">game</div>
+      </div>
+      <div class="answer-zone" id="ans3" data-correct="They didn't watch the game two weeks ago."></div>
+    </div>
+
+    <!-- Order Q4 -->
+    <div style="margin-bottom:24px;">
+      <p style="font-weight:700; margin-bottom:8px; color:var(--muted);">משפט 4: (5 נקודות)</p>
+      <div class="word-chips" id="chips4">
+        <div class="word-chip" onclick="pickChip(this,'ans4')">did</div>
+        <div class="word-chip" onclick="pickChip(this,'ans4')">Where</div>
+        <div class="word-chip" onclick="pickChip(this,'ans4')">last</div>
+        <div class="word-chip" onclick="pickChip(this,'ans4')">you</div>
+        <div class="word-chip" onclick="pickChip(this,'ans4')">go</div>
+        <div class="word-chip" onclick="pickChip(this,'ans4')">year</div>
+        <div class="word-chip" onclick="pickChip(this,'ans4')">?</div>
+      </div>
+      <div class="answer-zone" id="ans4" data-correct="Where did you go last year?"></div>
+    </div>
+
+    <div class="check-area">
+      <button class="btn btn-check" onclick="checkOrder()">✅ בדוק סדר</button>
+    </div>
+    <div class="feedback" id="orderFeedback"></div>
+  </div>
+
+  <!-- ===== EXERCISE 4 – Translation ===== -->
+  <div class="section-title"><span class="num">4</span> תרגום לאנגלית</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge gold">תרגום</span>
+      <span class="ex-title">תרגם מעברית לאנגלית</span>
+      <span class="ex-points">⭐ 20 נקודות</span>
+    </div>
+    <div class="ex-instruction">
+      🇮🇱 תרגם את המשפטים מעברית לאנגלית ב-Past Simple. כתוב בשורה שמתחת לכל משפט. שים לב לביטוי הזמן!
+    </div>
+
+    <div class="translate-item">
+      <div class="he-sentence">אמש אכלנו פיצה לארוחת ערב. (eat / pizza / dinner / last night)</div>
+      <textarea class="hebrew" id="tr1" data-key="tr1" placeholder="Write in English..." oninput="saveTA(this)"></textarea>
+    </div>
+    <div class="translate-item">
+      <div class="he-sentence">לפני שנה היא גרה בתל אביב. (live / Tel Aviv / a year ago)</div>
+      <textarea class="hebrew" id="tr2" data-key="tr2" placeholder="Write in English..." oninput="saveTA(this)"></textarea>
+    </div>
+    <div class="translate-item">
+      <div class="he-sentence">האם הם לא למדו לבחינה בשבוע שעבר? (study / for the test / last week)</div>
+      <textarea class="hebrew" id="tr3" data-key="tr3" placeholder="Write in English..." oninput="saveTA(this)"></textarea>
+    </div>
+    <div class="translate-item">
+      <div class="he-sentence">לאן נסעתם בחגים? (go / the holidays)</div>
+      <textarea class="hebrew" id="tr4" data-key="tr4" placeholder="Write in English..." oninput="saveTA(this)"></textarea>
+    </div>
+
+    <div class="check-area">
+      <button class="btn btn-check" onclick="checkTranslation()">✅ בדוק תרגום</button>
+    </div>
+    <div class="feedback" id="trFeedback"></div>
+  </div>
+
+  <!-- ===== EXERCISE 5 – Open Writing ===== -->
+  <div class="section-title"><span class="num">5</span> כתיבה חופשית</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge red">כתיבה</span>
+      <span class="ex-title">ספר על הסוף שבוע שלך</span>
+      <span class="ex-points">⭐ 20 נקודות</span>
+    </div>
+    <div class="ex-instruction">
+      🇮🏻 כתוב <strong>לפחות 5 משפטים</strong> באנגלית על מה שעשית בסוף השבוע האחרון שלך.<br>
+      ✅ השתמש בפחות מ-5 ביטויי זמן (last night, yesterday, a week ago...)<br>
+      ✅ כלול לפחות משפט שלילי אחד ושאלה אחת (לדוגמה: Did I...? / I didn't...)<br>
+      ✅ השתמש בפועל לא סדיר אחד לפחות (went, ate, ran, saw, had...)
+    </div>
+
+    <textarea id="openWrite" data-key="openWrite" placeholder="Last weekend, I..." style="min-height:160px;" oninput="saveTA(this)"></textarea>
+
+    <div style="margin-top:12px; background:var(--soft); border-radius:10px; padding:12px 16px;">
+      <strong>📋 רשימת פעלים לא סדירים שימושיים:</strong>
+      <div class="spelling-grid" style="margin-top:8px;">
+        <div class="spell-item"><span>go →</span> went</div>
+        <div class="spell-item"><span>eat →</span> ate</div>
+        <div class="spell-item"><span>see →</span> saw</div>
+        <div class="spell-item"><span>do →</span> did</div>
+        <div class="spell-item"><span>have →</span> had</div>
+        <div class="spell-item"><span>run →</span> ran</div>
+        <div class="spell-item"><span>come →</span> came</div>
+        <div class="spell-item"><span>make →</span> made</div>
+        <div class="spell-item"><span>find →</span> found</div>
+        <div class="spell-item"><span>meet →</span> met</div>
+        <div class="spell-item"><span>buy →</span> bought</div>
+        <div class="spell-item"><span>sleep →</span> slept</div>
+      </div>
+    </div>
+
+    <div class="check-area">
+      <button class="btn btn-check" onclick="checkOpen()">✅ שמור וקבל נקודות</button>
+    </div>
+    <div class="feedback" id="openFeedback"></div>
+  </div>
+
+  <!-- ===== IRREGULAR VERBS THEORY ===== -->
+  <div class="section-title"><span class="num">📗</span> פעלים לא סדירים – Irregular Verbs</div>
+
+  <div class="card">
+    <p style="font-size:1.05rem; line-height:1.9;">
+      ברוב הפעלים מוסיפים <strong>-ed</strong> כדי ליצור עבר פשוט (walk → walked).<br>
+      אבל יש קבוצה של פעלים שנקראים <strong>פעלים לא סדירים</strong> – הם <strong>משנים צורה לגמרי</strong> בעבר ואי אפשר לנחש אותם – <strong>חייבים לשנן אותם בעל פה!</strong>
+    </p>
+    <div style="margin-top:14px; background:#fff8e1; border-radius:10px; padding:12px 16px; border-right:4px solid var(--gold);">
+      💡 <strong>טיפ:</strong> הפעלים מחולקים לפי <strong>הדפוס שבו הם משתנים</strong> – זה עוזר לשנן אותם בקבוצות!
+    </div>
+
+    <!-- Tabs -->
+    <div style="margin-top:20px;">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:0;" id="irr-tabs">
+        <button class="irr-tab active" onclick="showGroup('g-ia')" id="tab-g-ia">i → a</button>
+        <button class="irr-tab" onclick="showGroup('g-ew')" id="tab-g-ew">-ew</button>
+        <button class="irr-tab" onclick="showGroup('g-t')" id="tab-g-t">-t</button>
+        <button class="irr-tab" onclick="showGroup('g-lo')" id="tab-g-lo">long o</button>
+        <button class="irr-tab" onclick="showGroup('g-ought')" id="tab-g-ought">-ought/-aught</button>
+        <button class="irr-tab" onclick="showGroup('g-oo')" id="tab-g-oo">a → oo</button>
+        <button class="irr-tab" onclick="showGroup('g-no')" id="tab-g-no">no change</button>
+        <button class="irr-tab" onclick="showGroup('g-ear')" id="tab-g-ear">ear/d→t</button>
+        <button class="irr-tab" onclick="showGroup('g-other')" id="tab-g-other">others</button>
+      </div>
+
+      <div class="irr-group-panel" id="g-ia">
+        <div class="irr-desc">הצליל <strong>i</strong> הופך ל-<strong>a</strong> בעבר</div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">sit</span><span class="arr">→</span><span class="past">sat</span></div>
+          <div class="irr-pair"><span class="base">ring</span><span class="arr">→</span><span class="past">rang</span></div>
+          <div class="irr-pair"><span class="base">sing</span><span class="arr">→</span><span class="past">sang</span></div>
+          <div class="irr-pair"><span class="base">swim</span><span class="arr">→</span><span class="past">swam</span></div>
+          <div class="irr-pair"><span class="base">drink</span><span class="arr">→</span><span class="past">drank</span></div>
+          <div class="irr-pair"><span class="base">give</span><span class="arr">→</span><span class="past">gave</span></div>
+          <div class="irr-pair"><span class="base">begin</span><span class="arr">→</span><span class="past">began</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-ew">
+        <div class="irr-desc">הסיומת משתנה ל-<strong>-ew</strong></div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">know</span><span class="arr">→</span><span class="past">knew</span></div>
+          <div class="irr-pair"><span class="base">throw</span><span class="arr">→</span><span class="past">threw</span></div>
+          <div class="irr-pair"><span class="base">grow</span><span class="arr">→</span><span class="past">grew</span></div>
+          <div class="irr-pair"><span class="base">blow</span><span class="arr">→</span><span class="past">blew</span></div>
+          <div class="irr-pair"><span class="base">fly</span><span class="arr">→</span><span class="past">flew</span></div>
+          <div class="irr-pair"><span class="base">draw</span><span class="arr">→</span><span class="past">drew</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-t">
+        <div class="irr-desc">הסיומת משתנה ל-<strong>-t</strong></div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">leave</span><span class="arr">→</span><span class="past">left</span></div>
+          <div class="irr-pair"><span class="base">mean</span><span class="arr">→</span><span class="past">meant</span></div>
+          <div class="irr-pair"><span class="base">dream</span><span class="arr">→</span><span class="past">dreamt</span></div>
+          <div class="irr-pair"><span class="base">learn</span><span class="arr">→</span><span class="past">learnt</span></div>
+          <div class="irr-pair"><span class="base">sleep</span><span class="arr">→</span><span class="past">slept</span></div>
+          <div class="irr-pair"><span class="base">keep</span><span class="arr">→</span><span class="past">kept</span></div>
+          <div class="irr-pair"><span class="base">feel</span><span class="arr">→</span><span class="past">felt</span></div>
+          <div class="irr-pair"><span class="base">sweep</span><span class="arr">→</span><span class="past">swept</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-lo">
+        <div class="irr-desc">הצליל הופך ל-<strong>long o</strong> (oh)</div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">speak</span><span class="arr">→</span><span class="past">spoke</span></div>
+          <div class="irr-pair"><span class="base">break</span><span class="arr">→</span><span class="past">broke</span></div>
+          <div class="irr-pair"><span class="base">steal</span><span class="arr">→</span><span class="past">stole</span></div>
+          <div class="irr-pair"><span class="base">write</span><span class="arr">→</span><span class="past">wrote</span></div>
+          <div class="irr-pair"><span class="base">ride</span><span class="arr">→</span><span class="past">rode</span></div>
+          <div class="irr-pair"><span class="base">drive</span><span class="arr">→</span><span class="past">drove</span></div>
+          <div class="irr-pair"><span class="base">choose</span><span class="arr">→</span><span class="past">chose</span></div>
+          <div class="irr-pair"><span class="base">wake</span><span class="arr">→</span><span class="past">woke</span></div>
+          <div class="irr-pair"><span class="base">rise</span><span class="arr">→</span><span class="past">rose</span></div>
+          <div class="irr-pair"><span class="base">shine</span><span class="arr">→</span><span class="past">shone</span></div>
+          <div class="irr-pair"><span class="base">get</span><span class="arr">→</span><span class="past">got</span></div>
+          <div class="irr-pair"><span class="base">forget</span><span class="arr">→</span><span class="past">forgot</span></div>
+          <div class="irr-pair"><span class="base">shoot</span><span class="arr">→</span><span class="past">shot</span></div>
+          <div class="irr-pair"><span class="base">win</span><span class="arr">→</span><span class="past">won</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-ought">
+        <div class="irr-desc">הסיומת משתנה ל-<strong>-ought</strong> או <strong>-aught</strong></div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">think</span><span class="arr">→</span><span class="past">thought</span></div>
+          <div class="irr-pair"><span class="base">buy</span><span class="arr">→</span><span class="past">bought</span></div>
+          <div class="irr-pair"><span class="base">bring</span><span class="arr">→</span><span class="past">brought</span></div>
+          <div class="irr-pair"><span class="base">fight</span><span class="arr">→</span><span class="past">fought</span></div>
+          <div class="irr-pair"><span class="base">teach</span><span class="arr">→</span><span class="past">taught</span></div>
+          <div class="irr-pair"><span class="base">catch</span><span class="arr">→</span><span class="past">caught</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-oo">
+        <div class="irr-desc">הצליל a הופך ל-<strong>oo</strong> | ell → old | ay → ai</div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">stand</span><span class="arr">→</span><span class="past">stood</span></div>
+          <div class="irr-pair"><span class="base">understand</span><span class="arr">→</span><span class="past">understood</span></div>
+          <div class="irr-pair"><span class="base">shake</span><span class="arr">→</span><span class="past">shook</span></div>
+          <div class="irr-pair"><span class="base">take</span><span class="arr">→</span><span class="past">took</span></div>
+          <div class="irr-pair"><span class="base">come</span><span class="arr">→</span><span class="past">came</span></div>
+          <div class="irr-pair"><span class="base">become</span><span class="arr">→</span><span class="past">became</span></div>
+          <div class="irr-pair"><span class="base">tell</span><span class="arr">→</span><span class="past">told</span></div>
+          <div class="irr-pair"><span class="base">sell</span><span class="arr">→</span><span class="past">sold</span></div>
+          <div class="irr-pair"><span class="base">say</span><span class="arr">→</span><span class="past">said</span></div>
+          <div class="irr-pair"><span class="base">pay</span><span class="arr">→</span><span class="past">paid</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-no">
+        <div class="irr-desc">צורת העבר <strong>זהה</strong> לצורת ההווה – לא משתנה כלל!</div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">shut</span><span class="arr">→</span><span class="past">shut</span></div>
+          <div class="irr-pair"><span class="base">let</span><span class="arr">→</span><span class="past">let</span></div>
+          <div class="irr-pair"><span class="base">put</span><span class="arr">→</span><span class="past">put</span></div>
+          <div class="irr-pair"><span class="base">hit</span><span class="arr">→</span><span class="past">hit</span></div>
+          <div class="irr-pair"><span class="base">read</span><span class="arr">→</span><span class="past">read</span></div>
+          <div class="irr-pair"><span class="base">cost</span><span class="arr">→</span><span class="past">cost</span></div>
+          <div class="irr-pair"><span class="base">cut</span><span class="arr">→</span><span class="past">cut</span></div>
+          <div class="irr-pair"><span class="base">hurt</span><span class="arr">→</span><span class="past">hurt</span></div>
+          <div class="irr-pair"><span class="base">beat</span><span class="arr">→</span><span class="past">beat</span></div>
+          <div class="irr-pair"><span class="base">bite</span><span class="arr">→</span><span class="past">bit</span></div>
+          <div class="irr-pair"><span class="base">hide</span><span class="arr">→</span><span class="past">hid</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-ear">
+        <div class="irr-desc"><strong>ear → ore</strong> | <strong>d → t</strong></div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">tear</span><span class="arr">→</span><span class="past">tore</span></div>
+          <div class="irr-pair"><span class="base">wear</span><span class="arr">→</span><span class="past">wore</span></div>
+          <div class="irr-pair"><span class="base">build</span><span class="arr">→</span><span class="past">built</span></div>
+          <div class="irr-pair"><span class="base">send</span><span class="arr">→</span><span class="past">sent</span></div>
+          <div class="irr-pair"><span class="base">spend</span><span class="arr">→</span><span class="past">spent</span></div>
+          <div class="irr-pair"><span class="base">lend</span><span class="arr">→</span><span class="past">lent</span></div>
+          <div class="irr-pair"><span class="base">fall</span><span class="arr">→</span><span class="past">fell</span></div>
+          <div class="irr-pair"><span class="base">hold</span><span class="arr">→</span><span class="past">held</span></div>
+          <div class="irr-pair"><span class="base">feed</span><span class="arr">→</span><span class="past">fed</span></div>
+          <div class="irr-pair"><span class="base">meet</span><span class="arr">→</span><span class="past">met</span></div>
+        </div>
+      </div>
+      <div class="irr-group-panel hidden" id="g-other">
+        <div class="irr-desc">פעלים לא סדירים <strong>שונים לגמרי</strong> – הכי חשוב לשנן!</div>
+        <div class="irr-pairs">
+          <div class="irr-pair"><span class="base">be</span><span class="arr">→</span><span class="past">was/were</span></div>
+          <div class="irr-pair"><span class="base">dig</span><span class="arr">→</span><span class="past">dug</span></div>
+          <div class="irr-pair"><span class="base">do</span><span class="arr">→</span><span class="past">did</span></div>
+          <div class="irr-pair"><span class="base">eat</span><span class="arr">→</span><span class="past">ate</span></div>
+          <div class="irr-pair"><span class="base">find</span><span class="arr">→</span><span class="past">found</span></div>
+          <div class="irr-pair"><span class="base">go</span><span class="arr">→</span><span class="past">went</span></div>
+          <div class="irr-pair"><span class="base">hang</span><span class="arr">→</span><span class="past">hung</span></div>
+          <div class="irr-pair"><span class="base">have</span><span class="arr">→</span><span class="past">had</span></div>
+          <div class="irr-pair"><span class="base">hear</span><span class="arr">→</span><span class="past">heard</span></div>
+          <div class="irr-pair"><span class="base">lie</span><span class="arr">→</span><span class="past">lay</span></div>
+          <div class="irr-pair"><span class="base">lose</span><span class="arr">→</span><span class="past">lost</span></div>
+          <div class="irr-pair"><span class="base">make</span><span class="arr">→</span><span class="past">made</span></div>
+          <div class="irr-pair"><span class="base">run</span><span class="arr">→</span><span class="past">ran</span></div>
+          <div class="irr-pair"><span class="base">see</span><span class="arr">→</span><span class="past">saw</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 6 – Verb Table -->
+  <div class="section-title"><span class="num">6</span> טבלת פעלים – כתוב את העבר</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:#0ca678;">טבלה</span>
+      <span class="ex-title">כתוב את צורת העבר של הפועל</span>
+      <span class="ex-points">⭐ 20 נקודות</span>
+    </div>
+    <div class="ex-instruction">
+      🇮🏻 כתוב את צורת ה-<strong>Past Simple</strong> של כל פועל. אפשר להיעזר בטבלה למעלה! אלה הפעלים שאתם חייבים לדעת.
+    </div>
+
+    <div style="overflow-x:auto;">
+    <table class="verb-table" id="verbTable">
+      <thead>
+        <tr>
+          <th>Present (הווה)</th>
+          <th>Past Simple (עבר)</th>
+          <th>Present (הווה)</th>
+          <th>Past Simple (עבר)</th>
+        </tr>
+      </thead>
+      <tbody id="verbTableBody"></tbody>
+    </table>
+    </div>
+
+    <div class="check-area" style="margin-top:20px;">
+      <button class="btn btn-check" onclick="checkVerbTable()">✅ בדוק טבלה</button>
+    </div>
+    <div class="feedback" id="vtFeedback"></div>
+  </div>
+
+  <!-- EXERCISE 7 – Flashcard Quiz -->
+  <div class="section-title"><span class="num">7</span> חידון פעלים – Flashcard</div>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:#e64980;">Flash</span>
+      <span class="ex-title">כתוב את צורת העבר ובדוק את עצמך</span>
+      <span class="ex-points">⭐ 10 נקודות בונוס</span>
+    </div>
+    <div class="ex-instruction">
+      🃏 יוצג לך פועל בהווה – כתוב את צורת העבר שלו ולחץ בדוק. תקבל 10 שאלות.
+    </div>
+
+    <div id="flashArea">
+      <div class="flash-card" id="flashCard">
+        <div class="flash-verb" id="flashVerb">?</div>
+        <div class="flash-he" id="flashHe"></div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; margin-top:16px; flex-wrap:wrap;">
+        <input type="text" id="flashInput" placeholder="כתוב Past Simple..." style="max-width:260px;" onkeydown="if(event.key==='Enter')checkFlash()" />
+        <button class="btn btn-check" onclick="checkFlash()">בדוק ✅</button>
+        <span id="flashCount" style="font-weight:700; color:var(--muted); font-size:0.95rem;">שאלה 1 מתוך 10</span>
+      </div>
+      <div id="flashFeedback" style="margin-top:10px; font-size:1rem; font-weight:700; min-height:28px;"></div>
+      <div style="margin-top:14px;">
+        <div style="background:rgba(255,255,255,0.6); border-radius:8px; height:10px; overflow:hidden;">
+          <div id="flashProgress" style="height:100%; background:var(--primary); border-radius:8px; width:0%; transition:width 0.4s;"></div>
+        </div>
+      </div>
+      <div id="flashResult" style="display:none; margin-top:18px; text-align:center;"></div>
+    </div>
+  </div>
+
+  <!-- ===== FINAL SCORE ===== -->
+  <div class="final-section" id="finalSection" style="display:none;">
+    <div class="emoji-reaction" id="finalEmoji">🎉</div>
+    <h2>הציון הסופי שלך</h2>
+    <div class="big-score" id="finalScore">0</div>
+    <div class="grade-label" id="gradeLabel"></div>
+    <p style="margin-top:16px; opacity:0.85; font-size:1rem;">כל תרגיל שבדקת נשמר אוטומטית 💾</p>
+    <button class="btn btn-gold" style="margin-top:24px;" onclick="calcFinal()">🔄 חשב שוב</button>
+  </div>
+
+  <div style="text-align:center; margin-top:32px;">
+    <button class="btn btn-gold" onclick="calcFinal()">🏁 חשב ציון סופי</button>
+  </div>
+
+</div>
+
+<script>
+// ========== LOCAL STORAGE ==========
+const LS_KEY = 'pastSimple_grade7_v1';
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveState(state) {
+  localStorage.setItem(LS_KEY, JSON.stringify(state));
+}
+
+let state = loadState();
+
+// Scores per section (max)
+let scores = {
+  mcq: state.mcqScore || 0,
+  fill: state.fillScore || 0,
+  order: state.orderScore || 0,
+  tr: state.trScore || 0,
+  open: state.openScore || 0,
+};
+
+let completed = state.completed || {};
+
+function updateScoreBar() {
+  const total = scores.mcq + scores.fill + scores.order + scores.tr + scores.open + (scores.verbtable||0) + (scores.flash||0);
+  const max = 130;
+  document.getElementById('scoreDisplay').textContent = total + ' / ' + max;
+  document.getElementById('progressFill').style.width = Math.min(100, Math.round(total/max*100)) + '%';
+  const done = Object.keys(completed).filter(k => completed[k]).length;
+  document.getElementById('completedLabel').textContent = done + ' מתוך 7 תרגילים הושלמו';
+}
+
+// ========== RESTORE TEXTAREAS ==========
+function saveTA(el) {
+  state[el.dataset.key] = el.value;
+  saveState(state);
+}
+
+function restoreTextareas() {
+  ['tr1','tr2','tr3','tr4','openWrite'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el && state[id]) el.value = state[id];
+  });
+}
+
+// ========== MCQ ==========
+function selectMCQ(groupId, val) {
+  if(completed['mcq']) return;
+  const opts = document.querySelectorAll('#' + groupId + ' .mcq-option');
+  opts.forEach(o => o.classList.remove('selected'));
+  document.querySelector('#' + groupId + ' [data-val="' + val + '"]').classList.add('selected');
+  state['mcq_' + groupId] = val;
+  saveState(state);
+}
+
+function checkMCQ() {
+  const groups = ['mcq1','mcq2','mcq3','mcq4','mcq5'];
+  let correct = 0;
+  groups.forEach(g => {
+    const el = document.getElementById(g);
+    const answer = state['mcq_' + g] || '';
+    const correctVal = el.dataset.correct;
+    const opts = el.querySelectorAll('.mcq-option');
+    opts.forEach(o => {
+      o.onclick = null;
+      if(o.dataset.val === correctVal) o.classList.add('correct');
+      else if(o.dataset.val === answer && answer !== correctVal) o.classList.add('wrong');
+    });
+    if(answer === correctVal) correct++;
+  });
+  const pts = correct * 4;
+  scores.mcq = pts;
+  state.mcqScore = pts;
+  completed['mcq'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const fb = document.getElementById('mcqFeedback');
+  fb.className = 'feedback show ' + (correct===5?'success':correct>=3?'partial':'error');
+  fb.innerHTML = (correct===5?'🎉 מצוין!':correct>=3?'👍 כמעט!':'💪 נסה שוב') + ` ענית נכון על <strong>${correct}/5</strong> שאלות. ניקוד: <strong>${pts}/20</strong>`;
+}
+
+// Restore MCQ selections
+(function restoreMCQ() {
+  ['mcq1','mcq2','mcq3','mcq4','mcq5'].forEach(g => {
+    const saved = state['mcq_' + g];
+    if(saved) {
+      const opt = document.querySelector('#' + g + ' [data-val="' + saved + '"]');
+      if(opt) opt.classList.add('selected');
+    }
+  });
+  if(state.mcqScore !== undefined) {
+    setTimeout(checkMCQ, 50);
+  }
+})();
+
+// ========== FILL IN ==========
+function normalize(s) { return s.trim().toLowerCase().replace(/['']/g,"'"); }
+
+function checkFill() {
+  const blanks = [
+    {id:'f1', answer:'played'},
+    {id:'f2', answer:'went'},
+    {id:'f3', answer:'cried'},
+    {id:'f4', answer:'didn\'t eat'},
+    {id:'f5', answer:'did'},
+    {id:'f5b', answer:'study'},
+    {id:'f6', answer:'stopped'},
+    {id:'f6b', answer:'ran'},
+    {id:'f7', answer:'landed'},
+  ];
+  let correct = 0;
+  blanks.forEach(b => {
+    const el = document.getElementById(b.id);
+    if(!el) return;
+    const val = normalize(el.value);
+    if(val === normalize(b.answer)) {
+      el.classList.add('correct'); el.classList.remove('wrong');
+      correct++;
+    } else {
+      el.classList.add('wrong'); el.classList.remove('correct');
+      if(!el.value.trim()) el.placeholder = b.answer;
+    }
+    el.dataset.savedFill = el.value;
+    state['fill_' + b.id] = el.value;
+  });
+  const max = blanks.length;
+  const pts = Math.round((correct/max)*20);
+  scores.fill = pts;
+  state.fillScore = pts;
+  completed['fill'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const fb = document.getElementById('fillFeedback');
+  fb.className = 'feedback show ' + (correct===max?'success':correct>=5?'partial':'error');
+  fb.innerHTML = (correct===max?'🎉 שלם!':correct>=5?'👍 טוב מאוד!':'💡 שים לב לכללי כתיב') + ` <strong>${correct}/${max}</strong> נכון. ניקוד: <strong>${pts}/20</strong>`;
+}
+
+(function restoreFill() {
+  ['f1','f2','f3','f4','f5','f5b','f6','f6b','f7'].forEach(id => {
+    const saved = state['fill_' + id];
+    const el = document.getElementById(id);
+    if(el && saved) el.value = saved;
+  });
+})();
+
+// ========== ORDERING ==========
+function pickChip(chip, zoneId) {
+  if(chip.classList.contains('used')) return;
+  chip.classList.add('used');
+  const zone = document.getElementById(zoneId);
+  const ac = document.createElement('div');
+  ac.className = 'answer-chip';
+  ac.textContent = chip.textContent;
+  ac.dataset.orig = chip.id || chip.textContent;
+  ac.onclick = function() { returnChip(ac, chip, zoneId); };
+  zone.appendChild(ac);
+  saveOrderState();
+}
+
+function returnChip(answerChip, origChip, zoneId) {
+  answerChip.remove();
+  origChip.classList.remove('used');
+  saveOrderState();
+}
+
+function saveOrderState() {
+  ['ans1','ans2','ans3','ans4'].forEach(id => {
+    const zone = document.getElementById(id);
+    if(zone) state['order_' + id] = Array.from(zone.querySelectorAll('.answer-chip')).map(c=>c.textContent);
+  });
+  saveState(state);
+}
+
+const correctOrders = {
+  ans1: ['I','found','a','old','key','yesterday.'],
+  ans2: ['Did','she','call','you','last','night','?'],
+  ans3: ['They','didn\'t','watch','the','game','two','weeks','ago.'],
+  ans4: ['Where','did','you','go','last','year','?'],
+};
+const acceptedOrders = {
+  ans1: [['i','found','a','old','key','yesterday'],['i','found','an','old','key','yesterday']],
+  ans2: [['did','she','call','you','last','night']],
+  ans3: [['they','didn\'t','watch','the','game','two','weeks','ago']],
+  ans4: [['where','did','you','go','last','year']],
+};
+
+function checkOrder() {
+  let correct = 0;
+  ['ans1','ans2','ans3','ans4'].forEach(id => {
+    const zone = document.getElementById(id);
+    const words = Array.from(zone.querySelectorAll('.answer-chip')).map(c=>c.textContent.toLowerCase().replace(/[?.]/g,''));
+    const accepted = acceptedOrders[id];
+    const isCorrect = accepted.some(a => a.join(' ') === words.join(' '));
+    if(isCorrect) correct++;
+  });
+  const pts = correct * 5;
+  scores.order = pts;
+  state.orderScore = pts;
+  completed['order'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const fb = document.getElementById('orderFeedback');
+  fb.className = 'feedback show ' + (correct===4?'success':correct>=2?'partial':'error');
+  fb.innerHTML = (correct===4?'🎉 כל המשפטים נכונים!':correct>=2?'👍 רוב המשפטים נכונים!':'💡 בדוק שוב את הסדר') + ` <strong>${correct}/4</strong> משפטים נכונים. ניקוד: <strong>${pts}/20</strong>`;
+}
+
+// ========== TRANSLATION ==========
+function checkTranslation() {
+  const keywords = [
+    {id:'tr1', must:['ate','last night'], hints:'We ate pizza for dinner last night.'},
+    {id:'tr2', must:['lived','a year ago','tel aviv'], hints:'A year ago, she lived in Tel Aviv.'},
+    {id:'tr3', must:["didn't","study",'last week'], hints:'Did they not study for the test last week? / They didn\'t study...'},
+    {id:'tr4', must:['did','go','last'], hints:'Where did you go last holidays?'},
+  ];
+  let correct = 0;
+  keywords.forEach(k => {
+    const val = (document.getElementById(k.id).value || '').toLowerCase();
+    const hasAll = k.must.every(w => val.includes(w));
+    if(hasAll && val.length > 8) correct++;
+  });
+  const pts = correct * 5;
+  scores.tr = pts;
+  state.trScore = pts;
+  completed['tr'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const fb = document.getElementById('trFeedback');
+  fb.className = 'feedback show ' + (correct===4?'success':correct>=2?'partial':'error');
+  fb.innerHTML = (correct===4?'🎉 כל התרגומים נכונים!':correct>=2?'👍 ממש טוב!':'💡 בדוק שהכנסת ביטויי זמן ופעלים נכונים') + ` <strong>${correct}/4</strong> נכון. ניקוד: <strong>${pts}/20</strong>`;
+}
+
+// ========== OPEN WRITING ==========
+function checkOpen() {
+  const val = (document.getElementById('openWrite').value || '').trim();
+  const sentences = val.split(/[.!?]/).filter(s=>s.trim().length>4);
+  const hasPast = /\b(went|ate|saw|had|ran|came|made|found|met|bought|slept|played|walked|stopped|studied|cried|loved|danced|planned|landed|disappeared|called|watched|visited)\b/i.test(val);
+  const hasNeg = /didn't|did not/i.test(val);
+  const hasTime = /yesterday|last night|last week|last month|last year|ago|last sunday|last birthday/i.test(val);
+  const pts = (sentences.length>=5?10:sentences.length>=3?6:2) + (hasPast?4:0) + (hasNeg?3:0) + (hasTime?3:0);
+  const finalPts = Math.min(20, pts);
+  scores.open = finalPts;
+  state.openScore = finalPts;
+  completed['open'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const fb = document.getElementById('openFeedback');
+  const msgs = [];
+  if(sentences.length < 5) msgs.push(`✏️ כתבת רק ${sentences.length} משפטים – נסה להגיע ל-5`);
+  if(!hasPast) msgs.push('⚠️ לא נמצא פועל לא סדיר – הוסף אחד!');
+  if(!hasNeg) msgs.push('⚠️ לא נמצאה שלילה – הוסף משפט עם didn\'t');
+  if(!hasTime) msgs.push('⚠️ לא נמצא ביטוי זמן – הוסף yesterday / last week וכו\'');
+  fb.className = 'feedback show ' + (finalPts>=16?'success':finalPts>=10?'partial':'error');
+  fb.innerHTML = (finalPts>=16?'🎉 כתיבה מצוינת!':finalPts>=10?'👍 עבודה טובה!':'💡 שפר את הכתיבה') + ` ניקוד: <strong>${finalPts}/20</strong>` + (msgs.length?'<br>' + msgs.join('<br>'):'');
+}
+
+// ========== SCORE UPDATE: include new sections ==========
+// Override scores object to include new exercises
+scores.verbtable = state.vtScore || 0;
+scores.flash = state.flashScore || 0;
+
+// ========== IRREGULAR VERB TABS ==========
+function showGroup(id) {
+  document.querySelectorAll('.irr-group-panel').forEach(p => p.classList.add('hidden'));
+  document.querySelectorAll('.irr-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+
+// ========== VERB TABLE ==========
+const verbList = [
+  {base:'go', past:'went', he:'ללכת / לנסוע'},
+  {base:'eat', past:'ate', he:'לאכול'},
+  {base:'have', past:'had', he:'להיות / לקבל'},
+  {base:'see', past:'saw', he:'לראות'},
+  {base:'run', past:'ran', he:'לרוץ'},
+  {base:'come', past:'came', he:'לבוא'},
+  {base:'make', past:'made', he:'להכין / לעשות'},
+  {base:'find', past:'found', he:'למצוא'},
+  {base:'think', past:'thought', he:'לחשוב'},
+  {base:'buy', past:'bought', he:'לקנות'},
+  {base:'know', past:'knew', he:'לדעת'},
+  {base:'take', past:'took', he:'לקחת'},
+  {base:'drink', past:'drank', he:'לשתות'},
+  {base:'swim', past:'swam', he:'לשחות'},
+  {base:'sing', past:'sang', he:'לשיר'},
+  {base:'sleep', past:'slept', he:'לישון'},
+  {base:'sit', past:'sat', he:'לשבת'},
+  {base:'give', past:'gave', he:'לתת'},
+  {base:'feel', past:'felt', he:'להרגיש'},
+  {base:'leave', past:'left', he:'לעזוב'},
+  {base:'speak', past:'spoke', he:'לדבר'},
+  {base:'write', past:'wrote', he:'לכתוב'},
+  {base:'meet', past:'met', he:'להיפגש'},
+  {base:'teach', past:'taught', he:'ללמד'},
+  {base:'keep', past:'kept', he:'לשמור'},
+  {base:'lose', past:'lost', he:'להפסיד / לאבד'},
+  {base:'tell', past:'told', he:'לספר'},
+  {base:'send', past:'sent', he:'לשלוח'},
+  {base:'build', past:'built', he:'לבנות'},
+  {base:'catch', past:'caught', he:'לתפוס'},
+];
+
+function buildVerbTable() {
+  const tbody = document.getElementById('verbTableBody');
+  const rows = Math.ceil(verbList.length / 2);
+  for(let r = 0; r < rows; r++) {
+    const tr = document.createElement('tr');
+    for(let col = 0; col < 2; col++) {
+      const idx = r + col * rows;
+      if(idx < verbList.length) {
+        const v = verbList[idx];
+        const tdBase = document.createElement('td');
+        tdBase.className = 'base-cell';
+        tdBase.innerHTML = `<span style="direction:ltr;display:inline-block;">${v.base}</span><br><span style="font-size:0.78rem;color:var(--muted);font-weight:400;">${v.he}</span>`;
+        const tdPast = document.createElement('td');
+        const saved = state['vt_' + v.base] || '';
+        tdPast.innerHTML = `<input type="text" id="vt_${v.base}" data-answer="${v.past}" value="${saved}" placeholder="?" oninput="saveVT(this)" />`;
+        tr.appendChild(tdBase);
+        tr.appendChild(tdPast);
+      } else {
+        tr.appendChild(document.createElement('td'));
+        tr.appendChild(document.createElement('td'));
+      }
+    }
+    tbody.appendChild(tr);
+  }
+}
+
+function saveVT(el) {
+  state['vt_' + el.id.replace('vt_','')] = el.value;
+  saveState(state);
+}
+
+function checkVerbTable() {
+  let correct = 0, total = 0;
+  verbList.forEach(v => {
+    const el = document.getElementById('vt_' + v.base);
+    if(!el) return;
+    total++;
+    const val = el.value.trim().toLowerCase();
+    if(val === v.past) {
+      el.classList.add('correct'); el.classList.remove('wrong');
+      correct++;
+    } else {
+      el.classList.add('wrong'); el.classList.remove('correct');
+      if(!el.value.trim()) el.placeholder = v.past;
+    }
+  });
+  const pts = Math.round((correct / total) * 20);
+  scores.verbtable = pts;
+  state.vtScore = pts;
+  completed['verbtable'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const fb = document.getElementById('vtFeedback');
+  const pct = Math.round(correct/total*100);
+  fb.className = 'feedback show ' + (pct>=90?'success':pct>=60?'partial':'error');
+  fb.innerHTML = (pct>=90?'🏆 מדהים!':pct>=60?'👍 עבודה טובה!':'💡 כדאי לחזור על הטבלה') + ` ידעת <strong>${correct}/${total}</strong> פעלים. ניקוד: <strong>${pts}/20</strong>`;
+}
+
+buildVerbTable();
+
+// ========== FLASHCARD ==========
+const flashVerbs = verbList.slice().sort(() => Math.random() - 0.5).slice(0, 10);
+let flashIdx = 0, flashCorrect = 0, flashDone = false;
+
+function showFlash() {
+  if(flashIdx >= flashVerbs.length) { endFlash(); return; }
+  const v = flashVerbs[flashIdx];
+  document.getElementById('flashVerb').textContent = v.base;
+  document.getElementById('flashHe').textContent = v.he;
+  document.getElementById('flashInput').value = '';
+  document.getElementById('flashFeedback').textContent = '';
+  document.getElementById('flashInput').focus();
+  document.getElementById('flashCount').textContent = `שאלה ${flashIdx+1} מתוך ${flashVerbs.length}`;
+  document.getElementById('flashProgress').style.width = (flashIdx / flashVerbs.length * 100) + '%';
+}
+
+function checkFlash() {
+  if(flashDone) return;
+  const v = flashVerbs[flashIdx];
+  const val = document.getElementById('flashInput').value.trim().toLowerCase();
+  const fb = document.getElementById('flashFeedback');
+  if(val === v.past) {
+    fb.innerHTML = `✅ נכון! <span style="color:var(--green);">${v.past}</span>`;
+    fb.style.color = 'var(--green)';
+    flashCorrect++;
+  } else if(val === '') {
+    fb.textContent = '⚠️ כתוב תשובה לפני שתלחץ בדוק';
+    return;
+  } else {
+    fb.innerHTML = `❌ לא נכון. התשובה הנכונה: <strong style="color:var(--accent);">${v.past}</strong>`;
+    fb.style.color = 'var(--accent)';
+  }
+  flashIdx++;
+  setTimeout(() => {
+    if(flashIdx < flashVerbs.length) showFlash();
+    else endFlash();
+  }, 1200);
+}
+
+function endFlash() {
+  flashDone = true;
+  document.getElementById('flashProgress').style.width = '100%';
+  const pts = Math.round((flashCorrect / flashVerbs.length) * 10);
+  scores.flash = pts;
+  state.flashScore = pts;
+  completed['flash'] = true;
+  state.completed = completed;
+  saveState(state);
+  updateScoreBar();
+  const result = document.getElementById('flashResult');
+  result.style.display = 'block';
+  result.innerHTML = `
+    <div style="font-size:2.5rem;">${flashCorrect>=8?'🏆':flashCorrect>=5?'🎯':'📖'}</div>
+    <div style="font-family:'Fredoka One',cursive; font-size:1.6rem; color:var(--primary); margin:8px 0;">
+      ${flashCorrect}/${flashVerbs.length} נכון!
+    </div>
+    <div style="color:var(--muted); font-size:0.95rem;">ניקוד בונוס: <strong>${pts}/10</strong></div>
+    <button class="btn btn-primary" style="margin-top:14px;" onclick="restartFlash()">🔄 נסה שוב</button>
+  `;
+  document.getElementById('flashCard').style.display = 'none';
+  document.getElementById('flashInput').style.display = 'none';
+  document.querySelector('#flashArea .btn-check').style.display = 'none';
+  document.getElementById('flashCount').style.display = 'none';
+}
+
+function restartFlash() {
+  flashIdx = 0; flashCorrect = 0; flashDone = false;
+  flashVerbs.sort(() => Math.random() - 0.5);
+  document.getElementById('flashResult').style.display = 'none';
+  document.getElementById('flashCard').style.display = '';
+  document.getElementById('flashInput').style.display = '';
+  document.querySelector('#flashArea .btn-check').style.display = '';
+  document.getElementById('flashCount').style.display = '';
+  document.getElementById('flashFeedback').textContent = '';
+  showFlash();
+}
+
+showFlash();
+
+// ========== UPDATED FINAL ==========
+function calcFinal() {
+  const total = scores.mcq + scores.fill + scores.order + scores.tr + scores.open + scores.verbtable + scores.flash;
+  const base = scores.mcq + scores.fill + scores.order + scores.tr + scores.open + scores.verbtable;
+  document.getElementById('finalScore').textContent = total;
+  const pct = total / 130 * 100;
+  const grade = pct>=90?'מעולה! 🌟':pct>=75?'טוב מאוד! 👏':pct>=60?'טוב 👍':pct>=50?'עובר ✔️':'צריך עוד עבודה 💪';
+  document.getElementById('gradeLabel').textContent = grade + ` (${Math.round(pct)}%)`;
+  document.getElementById('finalEmoji').textContent = pct>=90?'🏆':pct>=75?'🎯':pct>=60?'✨':'📖';
+  const fs = document.getElementById('finalSection');
+  fs.style.display = 'block';
+  fs.scrollIntoView({behavior:'smooth'});
+}
+
+
+// ========== INIT ==========
+restoreTextareas();
+updateScoreBar();
+</script>
+</body>
+</html>
