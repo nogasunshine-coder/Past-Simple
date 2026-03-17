@@ -1,4 +1,4 @@
-index<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -1506,19 +1506,25 @@ function checkOrder() {
 }
 
 // ========== TRANSLATION ==========
+function normApos(s) { return s.replace(/[\u2018\u2019\u02BC\u0060\']/g, "'"); }
 function checkTranslation() {
-  const keywords = [
-    {id:'tr1', must:['ate','last night'], hints:'We ate pizza for dinner last night.'},
-    {id:'tr2', must:['lived','a year ago','tel aviv'], hints:'A year ago, she lived in Tel Aviv.'},
-    {id:'tr3', must:["didn't","study",'last week'], hints:'Did they not study for the test last week? / They didn\'t study...'},
-    {id:'tr4', must:['did','go','last'], hints:'Where did you go last holidays?'},
-  ];
   let correct = 0;
-  keywords.forEach(k => {
-    const val = (document.getElementById(k.id).value || '').toLowerCase();
-    const hasAll = k.must.every(w => val.includes(w));
-    if(hasAll && val.length > 8) correct++;
-  });
+  // tr1: ate + last night
+  const v1 = normApos((document.getElementById('tr1').value || '').toLowerCase());
+  if(v1.includes('ate') && v1.includes('last night') && v1.length > 8) correct++;
+  // tr2: lived + a year ago + tel aviv
+  const v2 = normApos((document.getElementById('tr2').value || '').toLowerCase());
+  if(v2.includes('lived') && v2.includes('a year ago') && v2.includes('tel aviv') && v2.length > 8) correct++;
+  // tr3: (didn't study OR did not study OR did they not study) + last week
+  const v3 = normApos((document.getElementById('tr3').value || '').toLowerCase());
+  const hasNegStudy = v3.includes("didn't study") || v3.includes("did not study") || (v3.includes("did") && v3.includes("not") && v3.includes("study"));
+  if(hasNegStudy && v3.includes('last week') && v3.length > 8) correct++;
+  // tr4: did + go/went + (last/holidays/on the)
+  const v4 = normApos((document.getElementById('tr4').value || '').toLowerCase());
+  const hasGo = v4.includes('go') || v4.includes('went');
+  const hasWhere = v4.includes('where') || v4.includes('last') || v4.includes('holiday');
+  if(hasGo && hasWhere && v4.length > 8) correct++;
+
   const pts = correct * 5;
   scores.tr = pts;
   state.trScore = pts;
@@ -1533,11 +1539,12 @@ function checkTranslation() {
 
 // ========== OPEN WRITING ==========
 function checkOpen() {
-  const val = (document.getElementById('openWrite').value || '').trim();
+  const rawVal = (document.getElementById('openWrite').value || '').trim();
+  const val = normApos(rawVal);
   const sentences = val.split(/[.!?]/).filter(s=>s.trim().length>4);
-  const hasPast = /\b(went|ate|saw|had|ran|came|made|found|met|bought|slept|played|walked|stopped|studied|cried|loved|danced|planned|landed|disappeared|called|watched|visited)\b/i.test(val);
+  const hasPast = /\b(went|ate|saw|had|ran|came|made|found|met|bought|slept|played|walked|stopped|studied|cried|loved|danced|planned|landed|disappeared|called|watched|visited|forgot|took|began|felt|left|knew|spoke|wrote|sat|gave|drank|swam|sang|thought|brought|caught|told|sent|built|kept|lost|met)\b/i.test(val);
   const hasNeg = /didn't|did not/i.test(val);
-  const hasTime = /yesterday|last night|last week|last month|last year|ago|last sunday|last birthday/i.test(val);
+  const hasTime = /yesterday|last night|last week|last month|last year|ago|last sunday|last birthday|last weekend/i.test(val);
   const pts = (sentences.length>=5?10:sentences.length>=3?6:2) + (hasPast?4:0) + (hasNeg?3:0) + (hasTime?3:0);
   const finalPts = Math.min(20, pts);
   scores.open = finalPts;
